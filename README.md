@@ -30,6 +30,13 @@ Están en `public/` como marcadores. Para poner las reales, copia tu imagen en `
 
 Por ejemplo: guarda `public/liz-hero.jpg` y pon `photo: { src: '/liz-hero.jpg', alt: '…' }`. Escribe siempre un `alt` que describa la imagen.
 
+### SEO y redes sociales
+
+En `seo` (dentro de `content.ts`) están el título, la descripción y la imagen que muestran Google, WhatsApp, LinkedIn, etc. Al compilar se generan automáticamente las etiquetas `meta`, Open Graph, los datos estructurados (`Person`), `robots.txt` y `sitemap.xml`.
+
+- En Vercel la URL de producción se detecta sola. Si usas un dominio propio, ponlo en `seo.siteUrl`.
+- `public/og-image.png` (1200 × 630) es la imagen al compartir el enlace. Puedes sustituirla por otra del mismo tamaño.
+
 ## Estructura
 
 ```

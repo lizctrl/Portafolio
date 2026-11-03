@@ -1,6 +1,7 @@
 import { h } from '../jsx';
 import type { content, SocialLink } from '../content';
 import { CodeCard } from './CodeCard';
+import { HeroBackground } from './HeroBackground';
 import { Icon } from './Icon';
 import { SocialLinks } from './SocialLinks';
 
@@ -12,6 +13,7 @@ interface HeroProps {
 export function Hero({ data, social }: HeroProps): Node {
   return (
     <section id="inicio" class="hero">
+      <HeroBackground />
       <div class="container hero-grid">
         <div class="hero-text">
           <p class="status"><span class="status-dot" aria-hidden="true" />{data.badge}</p>
@@ -28,7 +30,7 @@ export function Hero({ data, social }: HeroProps): Node {
         </div>
         <div class="hero-visual">
           <CodeCard {...data.code} />
-          <img class="hero-photo" src={data.photo.src} alt={data.photo.alt} width="640" height="560" />
+          <img class="hero-photo" src={data.photo.src} alt={data.photo.alt} width="640" height="560" fetchpriority="high" />
         </div>
       </div>
     </section>

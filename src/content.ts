@@ -36,6 +36,16 @@ export interface Project {
 }
 
 export const content = {
+  // Lo que ven Google y las redes sociales al compartir el enlace.
+  seo: {
+    title: 'Liz · Desarrolladora de Software',
+    description:
+      'Portafolio de Liz, desarrolladora de software. Proyectos web con React, Next.js, Node.js y TypeScript. Disponible para nuevos proyectos.',
+    // En Vercel se usa el dominio de producción automáticamente; esta URL es la de respaldo.
+    siteUrl: 'https://portafolio-lizctrl.vercel.app',
+    image: '/og-image.png',
+    locale: 'es_ES',
+  },
   brand: 'codebyliz',
   nav: [
     { label: 'Inicio', href: '#inicio' },
