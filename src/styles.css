@@ -727,6 +727,80 @@ ul {
   color: var(--lavender);
 }
 
+/* 1. Entrada escalonada del Hero */
+@keyframes heroReveal {
+  from {
+    opacity: 0;
+    transform: translateY(22px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.hero-text > * {
+  animation: heroReveal 0.75s ease-out both;
+}
+
+.hero-text > :nth-child(1) { animation-delay: 200ms; }
+.hero-text > :nth-child(2) { animation-delay: 200ms; }
+.hero-text > :nth-child(3) { animation-delay: 200ms; }
+.hero-text > :nth-child(4) { animation-delay: 2ms; }
+.hero-text > :nth-child(5) { animation-delay: 2ms; }
+.hero-text > :nth-child(6) { animation-delay: 2ms; }
+
+/* 2. Flotación suave de la tarjeta */
+@keyframes codeFloat {
+  0%, 100% {
+    transform: translateY(0) rotate(-4deg);
+  }
+  50% {
+    transform: translateY(-6px) rotate(-4deg);
+  }
+}
+
+@media (min-width: 721px) {
+  .code-card {
+    animation: codeFloat 5s ease-in-out infinite;
+  }
+}
+
+/* 3. Pulso del indicador verde */
+@keyframes statusPulse {
+  0%, 100% {
+    box-shadow: 0 0 0 0 rgb(74 222 128 / 0.35);
+  }
+  50% {
+    box-shadow: 0 0 0 7px rgb(74 222 128 / 0);
+  }
+}
+
+.status-dot {
+  animation: statusPulse 3s ease-in-out infinite;
+}
+
+/* 4. Interacción del botón principal */
+.hero .btn-primary {
+  transition:
+    transform 0.25s ease,
+    box-shadow 0.25s ease;
+}
+
+.hero .btn-primary:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 12px 32px rgb(167 139 250 / 0.5);
+}
+
+.hero .btn-primary svg:last-child {
+  transition: transform 0.25s ease;
+}
+
+.hero .btn-primary:hover svg:last-child {
+  transform: translate(3px, -3px);
+}
+
+
 /* Responsive */
 @media (max-width: 980px) {
 
