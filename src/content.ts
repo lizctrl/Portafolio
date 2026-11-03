@@ -38,7 +38,7 @@ export interface Project {
 export const content = {
   // Lo que ven Google y las redes sociales al compartir el enlace.
   seo: {
-    title: 'Liz · Desarrolladora de Software',
+    title: 'Liz · Ingeniera en Software',
     description:
       'Portafolio de Liz, desarrolladora de software. Proyectos web con React, Next.js, Node.js y TypeScript. Disponible para nuevos proyectos.',
     // En Vercel se usa el dominio de producción automáticamente; esta URL es la de respaldo.
@@ -66,7 +66,7 @@ export const content = {
     badge: 'Disponible para proyectos',
     greeting: 'Hola, soy',
     name: 'Liz',
-    role: 'Desarrolladora de Software',
+    role: 'Ingeniera en Software',
     intro: 'Transformo ideas en experiencias digitales funcionales, intuitivas y con gran atención al detalle.',
     primaryCta: { label: 'Ver proyectos', href: '#proyectos' } as Link,
     secondaryCta: { label: 'Sobre mí', href: '#sobre-mi' } as Link,
@@ -86,7 +86,7 @@ export const content = {
   about: {
     badge: 'Sobre mí',
     title: 'Conoce un poco más de mí',
-    text: 'Soy desarrolladora de software con una gran pasión por la tecnología, la creatividad y la resolución de problemas. Disfruto crear soluciones que no solo funcionen bien, sino que también ofrezcan una gran experiencia de usuario.',
+    text: 'Soy Ingeniera en Software con una gran pasión por la tecnología, la creatividad y la resolución de problemas. Disfruto crear soluciones que no solo funcionen bien, sino que también ofrezcan una gran experiencia de usuario.',
     photo: { src: '/liz-about.svg', alt: 'Liz sonriendo frente a su portátil' } as Image,
     traits: [
       { icon: 'code', label: 'Desarrollo de software' },
