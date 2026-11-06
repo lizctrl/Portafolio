@@ -14,6 +14,11 @@ export function Skills({ data }: SkillsProps): Node {
       <SectionHeading badge={data.badge} title={data.title} subtitle={data.subtitle} />
       <div class="skills-carousel" role="region" aria-roledescription="carrusel" aria-label="Categorías de habilidades">
         <div class="tech-grid" title="Mueve el mouse de lado a lado para rotar">
+          <svg class="carousel-base-motion" viewBox="0 0 600 120" preserveAspectRatio="none" aria-hidden="true">
+            <ellipse class="base-track" cx="300" cy="60" rx="282" ry="42" />
+            <ellipse class="base-segments" cx="300" cy="60" rx="282" ry="42" pathLength="1000" />
+            <ellipse class="base-highlight" cx="300" cy="60" rx="260" ry="33" pathLength="1000" />
+          </svg>
           {data.groups.map((group) => <TechCard {...group} />)}
         </div>
         <div class="skills-controls">

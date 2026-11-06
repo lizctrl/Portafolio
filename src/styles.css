@@ -1212,3 +1212,12 @@ ul {
 @keyframes carousel-base-orbit {
   to { --carousel-orbit-angle: 360deg; }
 }
+
+/* Segmentos luminosos que hacen perceptible el giro de la plataforma. */
+.skills .tech-grid::after { display: none; }
+.carousel-base-motion { position: absolute; width: 94%; height: 125px; left: 3%; bottom: 12px; overflow: visible; pointer-events: none; }
+.carousel-base-motion ellipse { fill: none; }
+.base-track { stroke: #a78bfa80; stroke-width: 1.5; }
+.base-segments { stroke: #c4b5fd; stroke-width: 3; stroke-linecap: round; stroke-dasharray: 42 83; filter: drop-shadow(0 0 4px #a78bfa); animation: base-segment-turn 16s linear infinite; }
+.base-highlight { stroke: #f3e8ff; stroke-width: 3; stroke-linecap: round; stroke-dasharray: 70 430; filter: drop-shadow(0 0 5px #c4b5fd); animation: base-segment-turn 20s linear infinite reverse; }
+@keyframes base-segment-turn { from { stroke-dashoffset: 0; } to { stroke-dashoffset: -1000; } }
