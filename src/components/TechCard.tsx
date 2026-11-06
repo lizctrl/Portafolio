@@ -35,7 +35,7 @@ export function TechCard({ title, icon, items }: TechGroup): Node {
           {items.map((tech) => (
             <li><button type="button" class="chip tech-select" data-tech={tech.name}
               aria-label={`Ver logo de ${tech.name}`}>
-              <span class="chip-dot" style={`background:${tech.color}`} aria-hidden="true" />{tech.name}
+              <img class="tech-chip-logo" src={`/logos/${logos[tech.name]}.svg`} width="19" height="19" alt="" />{tech.name}
             </button></li>
           ))}
         </ul>

@@ -14,6 +14,8 @@ export function Skills({ data }: SkillsProps): Node {
       <SectionHeading badge={data.badge} title={data.title} subtitle={data.subtitle} />
       <div class="skills-carousel" role="region" aria-roledescription="carrusel" aria-label="Categorías de habilidades">
         <div class="tech-grid" title="Mueve el mouse de lado a lado para rotar">
+          <div class="hologram-base" aria-hidden="true"><div class="hologram-ring" /></div>
+          <div class="hologram-beam" aria-hidden="true" />
           {data.groups.map((group) => <TechCard {...group} />)}
         </div>
         <div class="skills-controls">
