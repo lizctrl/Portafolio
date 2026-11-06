@@ -58,7 +58,7 @@ export const content = {
   social: [
     { label: 'GitHub', href: 'https://github.com/lizctrl', icon: 'github' },
     { label: 'LinkedIn', href: 'https://www.linkedin.com/', icon: 'linkedin' },
-    { label: 'Correo', href: 'mailto:correo@ejemplo.com', icon: 'mail' },
+    { label: 'Correo', href: 'mailto:lizmonram@gmail.com', icon: 'mail' },
     { label: 'Código de este portafolio', href: 'https://github.com/lizctrl/Portafolio', icon: 'code' },
   ] satisfies SocialLink[] as SocialLink[],
 
@@ -185,7 +185,7 @@ export const content = {
   contact: {
     title: '¿Trabajemos juntos?',
     text: 'Estoy abierta a nuevas oportunidades, colaboraciones o proyectos interesantes. ¡Hablemos!',
-    button: { label: 'Contáctame', href: 'mailto:correo@ejemplo.com' } as Link,
+    button: { label: 'Contáctame', href: 'mailto:lizmonram@gmail.com' } as Link,
   },
 
   footer: { owner: 'CodeByLiz', madeBy: 'Liz' },
