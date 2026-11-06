@@ -1185,3 +1185,30 @@ ul {
   .skills .tech-mini-logo { width: 20px; height: 20px; }
   .skills .tech-mini-logo img { width: 16px; height: 16px; }
 }
+
+/* Giro continuo de la luz sobre la base, independiente de las tarjetas. */
+@property --carousel-orbit-angle {
+  syntax: '<angle>';
+  inherits: false;
+  initial-value: 0deg;
+}
+.skills .tech-grid::after {
+  content: '';
+  position: absolute;
+  width: 86%;
+  height: 135px;
+  left: 7%;
+  bottom: 22px;
+  box-sizing: border-box;
+  border-radius: 50%;
+  padding: 2px;
+  transform: rotateX(52deg);
+  background: conic-gradient(from var(--carousel-orbit-angle), transparent 0deg 35deg, #c4b5fd 70deg, #f3e8ff 85deg, transparent 115deg 215deg, #a78bfa 250deg, #e9d5ff 265deg, transparent 295deg 360deg);
+  mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+  mask-composite: exclude;
+  animation: carousel-base-orbit 32s linear infinite;
+  pointer-events: none;
+}
+@keyframes carousel-base-orbit {
+  to { --carousel-orbit-angle: 360deg; }
+}
