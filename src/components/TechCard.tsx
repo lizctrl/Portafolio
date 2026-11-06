@@ -2,14 +2,14 @@ import { h } from '../jsx';
 import type { TechGroup } from '../content';
 import { Icon } from './Icon';
 
-const logos: Record<string, string> = {
+export const logos: Record<string, string> = {
   React: 'react', 'Next.js': 'nextjs', 'Tailwind CSS': 'tailwindcss',
   TypeScript: 'typescript', 'Node.js': 'nodejs', Java: 'java', Python: 'python',
   PostgreSQL: 'postgresql', MongoDB: 'mongodb', Firebase: 'firebase',
   Git: 'git', GitHub: 'github', Docker: 'docker', Figma: 'figma',
 };
 
-const descriptions: Record<string, string> = {
+export const descriptions: Record<string, string> = {
   React: 'Biblioteca para crear interfaces interactivas a partir de componentes reutilizables.',
   'Next.js': 'Framework basado en React para desarrollar aplicaciones web con rutas y renderizado en el servidor.',
   'Tailwind CSS': 'Herramientas de CSS para construir interfaces adaptables con clases de utilidad.',
