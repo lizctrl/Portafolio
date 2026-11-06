@@ -59,9 +59,10 @@ export function Skills({ data }: SkillsProps): Node {
   let yaw = .08, pitch = -.08, zoom = 1;
   let targetYaw = yaw, targetPitch = pitch, targetZoom = zoom;
   let width = 1, height = 1, selected = -1, frame = 0;
+  let visible = false;
   let drag: { id: number; x: number; y: number; distance: number } | undefined;
   let suppressClick = false;
-  const stars = Array.from({ length: 100 }, (_, i) => ({ x: ((i * 7919) % 1000) / 1000, y: ((i * 3571) % 997) / 997, radius: i % 5 === 0 ? 1.3 : .65 }));
+  const stars = Array.from({ length: 260 }, (_, i) => ({ x: ((i * 7919) % 1000) / 1000, y: ((i * 3571) % 997) / 997, radius: i % 5 === 0 ? 1.3 : .65 }));
 
   function project(point: Point) {
     const x = point.x * Math.cos(yaw) + point.z * Math.sin(yaw);
@@ -69,16 +70,22 @@ export function Skills({ data }: SkillsProps): Node {
     const y = point.y * Math.cos(pitch) - z * Math.sin(pitch);
     const depth = point.y * Math.sin(pitch) + z * Math.cos(pitch);
     const perspective = 850 / (850 + depth);
-    const scale = Math.min(width / 920, height / 590) * zoom * perspective;
-    const verticalScale = width < 540 ? (height / 650) * zoom * perspective : scale;
+    const scale = (width / 900) * zoom * perspective;
+    const verticalScale = (height / 650) * zoom * perspective;
     return { x: width / 2 + x * scale, y: height / 2 + y * verticalScale, scale: perspective, depth };
   }
   function draw() {
     ctx.clearRect(0, 0, width, height);
-    stars.forEach((star) => {
-      ctx.fillStyle = '#dfd1ff80';
-      ctx.beginPath(); ctx.arc(star.x * width, star.y * height, star.radius, 0, Math.PI * 2); ctx.fill();
+    const time = reduced.matches ? 0 : performance.now() * .00016;
+    stars.forEach((star, i) => {
+      const phase = i * 1.618;
+      const dx = reduced.matches ? 0 : Math.sin(time + phase) * 12;
+      const dy = reduced.matches ? 0 : Math.cos(time * .7 + phase) * 8;
+      ctx.globalAlpha = .4 + (Math.sin(time * 1.2 + phase) + 1) * .2;
+      ctx.fillStyle = i % 4 === 0 ? '#c4b5fd' : '#eee5ff';
+      ctx.beginPath(); ctx.arc(star.x * width + dx, star.y * height + dy, star.radius, 0, Math.PI * 2); ctx.fill();
     });
+    ctx.globalAlpha = 1;
     const points = nodes.map((node) => project(node.point));
     // Connections within each cluster and bridges between the four categories.
     nodes.forEach((node, i) => nodes.forEach((other, j) => {
@@ -116,7 +123,7 @@ export function Skills({ data }: SkillsProps): Node {
     pitch += (targetPitch - pitch) * ease;
     zoom += (targetZoom - zoom) * ease;
     draw();
-    if (Math.abs(targetYaw - yaw) + Math.abs(targetPitch - pitch) + Math.abs(targetZoom - zoom) > .0005) requestDraw();
+    if (visible && !document.hidden && (!reduced.matches || Math.abs(targetYaw - yaw) + Math.abs(targetPitch - pitch) + Math.abs(targetZoom - zoom) > .0005)) requestDraw();
   }
   function requestDraw() { if (!frame) frame = requestAnimationFrame(tick); }
   function setZoom(value: number) { targetZoom = Math.max(.55, Math.min(2.2, value)); requestDraw(); }
@@ -184,5 +191,11 @@ export function Skills({ data }: SkillsProps): Node {
     canvas.width = width * dpr; canvas.height = height * dpr;
     ctx.setTransform(dpr, 0, 0, dpr, 0, 0); requestDraw();
   }).observe(viewport);
+  new IntersectionObserver(([entry]) => {
+    visible = entry.isIntersecting;
+    if (visible) requestDraw();
+  }).observe(viewport);
+  document.addEventListener('visibilitychange', () => { if (!document.hidden && visible) requestDraw(); });
+  reduced.addEventListener('change', requestDraw);
   return section;
 }

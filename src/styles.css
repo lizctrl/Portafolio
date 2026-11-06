@@ -964,3 +964,35 @@ ul {
   .constellation-selected-logo img { width: 42px; height: 42px; }
   .constellation-help { font-size: .68rem; }
 }
+
+/* La constelación ocupa todo el ancho de habilidades. */
+.section.constellation-section { padding: 24px 0 0; }
+.constellation-section .container { width: 100%; max-width: none; padding: 0; }
+.constellation-section .section-heading { padding: 0 20px; }
+.constellation-shell { margin-top: 18px; border-radius: 0; border-left: 0; border-right: 0; box-shadow: none; }
+.constellation-viewport { height: clamp(440px, 65vh, 720px); }
+.constellation-toolbar, .constellation-detail { padding-left: clamp(18px, 3vw, 56px); padding-right: clamp(18px, 3vw, 56px); }
+@media (max-width: 600px) {
+  .section.constellation-section { padding-top: 20px; }
+  .constellation-viewport { height: 460px; }
+}
+
+/* Pastilla de habilidades a la izquierda del encabezado. */
+.constellation-section .section-heading {
+  position: relative;
+  max-width: none;
+  padding: 8px 200px;
+}
+.constellation-section .section-heading .badge {
+  position: absolute;
+  left: 7%;
+  top: 50%;
+  transform: translateY(-50%);
+  margin: 0;
+}
+.constellation-section .section-heading h2,
+.constellation-section .section-heading .lead { max-width: 650px; margin-left: auto; margin-right: auto; }
+@media (max-width: 900px) {
+  .constellation-section .section-heading { padding: 0 20px; }
+  .constellation-section .section-heading .badge { position: static; display: table; transform: none; margin: 0 0 14px; }
+}
