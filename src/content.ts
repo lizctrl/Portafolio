@@ -114,6 +114,7 @@ export const content = {
         icon: 'monitor',
         items: [
           { name: 'React', color: '#61dafb' },
+          { name: 'Angular', color: '#dd0031' },
           { name: 'Next.js', color: '#000000' },
           { name: 'Tailwind CSS', color: '#38bdf8' },
           { name: 'TypeScript', color: '#3178c6' },
@@ -133,6 +134,7 @@ export const content = {
         icon: 'database',
         items: [
           { name: 'PostgreSQL', color: '#336791' },
+          { name: 'SQL Server', color: '#cc2927' },
           { name: 'MongoDB', color: '#47a248' },
           { name: 'Firebase', color: '#ffca28' },
         ],

@@ -924,75 +924,264 @@ ul {
   }
 }
 
-
-/* Constelación interactiva con proyección tridimensional. */
-.constellation-section { background: radial-gradient(ellipse at 50% 50%, #35204c, #160e27 65%, #110c1e); }
-.constellation-section::before, .constellation-section::after { display: none; }
-.constellation-section .container { display: block; position: relative; }
-.constellation-section .section-heading { max-width: 650px; margin: auto; text-align: center; }
-.constellation-section img[src$="/nextjs.svg"], .constellation-section img[src$="/github.svg"] { filter: invert(1) drop-shadow(0 0 5px #c4b5fd); }
-.constellation-shell { border: 1px solid #c4b5fd33; border-radius: 28px; background: #110c1e66; box-shadow: 0 25px 90px #0003; overflow: hidden; margin-top: 32px; }
-.constellation-toolbar { display: flex; justify-content: space-between; align-items: center; gap: 16px; padding: 18px 24px; border-bottom: 1px solid #c4b5fd1a; }
-.constellation-caption { color: #d6c6ef; font-size: .8rem; letter-spacing: .04em; }
-.constellation-tools { display: flex; align-items: center; gap: 8px; }
-.constellation-tools button { min-width: 40px; min-height: 40px; border: 1px solid #c4b5fd55; border-radius: 12px; background: #c4b5fd0d; color: #eee5ff; font: inherit; cursor: pointer; padding: 6px 12px; }
-.constellation-tools button:hover { background: #c4b5fd26; }
-.constellation-zoom { min-width: 44px; text-align: center; font-size: .75rem; font-variant-numeric: tabular-nums; color: #d9c8f1; }
-.constellation-viewport { position: relative; height: 590px; overflow: hidden; touch-action: none; cursor: grab; user-select: none; background: radial-gradient(ellipse at 28% 35%, #a879e91c, transparent 40%), radial-gradient(ellipse at 76% 70%, #9670df22, transparent 42%); }
-.constellation-viewport.is-dragging, .constellation-viewport.is-dragging * { cursor: grabbing; }
-.constellation-canvas { position: absolute; inset: 0; width: 100%; height: 100%; pointer-events: none; }
-.constellation-node { position: absolute; display: grid; justify-items: center; gap: 7px; padding: 8px; min-width: 56px; border: 0; background: transparent; color: #f5efff; cursor: pointer; font: inherit; }
-.constellation-star { display: grid; place-items: center; width: 48px; height: 48px; border: 1px solid #d8c2ff99; border-radius: 50%; background: radial-gradient(circle at 35% 28%, #bb96e970, #41275cdd 65%); box-shadow: 0 0 13px #c4b5fd4d, 0 0 35px #b685e92b, inset 0 0 10px #d6b5ff33; transition: box-shadow 180ms, border-color 180ms; }
-.constellation-star img { width: 26px; height: 26px; object-fit: contain; filter: drop-shadow(0 0 4px #c4b5fd80); pointer-events: none; }
-.constellation-node-name { padding: 2px 7px; font-size: .76rem; white-space: nowrap; border-radius: 6px; background: #160d26c9; text-shadow: 0 1px 6px #000; }
-.constellation-node:hover .constellation-star, .constellation-node[aria-pressed='true'] .constellation-star { border-color: #fff; box-shadow: 0 0 15px #e3cfffaa, 0 0 45px #c4b5fd66; }
-.constellation-node[aria-pressed='true'] .constellation-node-name { color: #fff; background: #704c9d; }
-.constellation-help { color: #bda9d5; text-align: center; font-size: .75rem; padding: 0 16px 18px; margin: 0; }
-.constellation-detail { display: flex; gap: 24px; align-items: center; min-height: 140px; padding: 24px 32px; border-top: 1px solid #c4b5fd33; background: linear-gradient(110deg, #c4b5fd14, #20132f88); }
-.constellation-selected-logo { flex-shrink: 0; display: grid; place-items: center; width: 90px; height: 90px; border-radius: 22px; background: #c4b5fd14; border: 1px solid #c4b5fd40; }
-.constellation-selected-logo[hidden] { display: none; }
-.constellation-selected-logo img { width: 60px; height: 60px; object-fit: contain; filter: drop-shadow(0 0 8px #b991ef80); }
-.constellation-selected-category { color: #c4b5fd; text-transform: uppercase; letter-spacing: .1em; font-size: .66rem; }
-.constellation-detail .constellation-selected-name { font-size: 1.35rem; margin: 6px 0 9px; color: #f5edff; }
-.constellation-selected-description { color: #d4c5e5; font-size: .9rem; margin: 0; max-width: 650px; line-height: 1.7; }
-@media (max-width: 600px) {
-  .constellation-toolbar { padding: 14px; flex-wrap: wrap; justify-content: center; gap: 10px; }
-  .constellation-caption { width: 100%; text-align: center; }
-  .constellation-viewport { height: 440px; }
-  .constellation-detail { padding: 20px; gap: 16px; align-items: flex-start; }
-  .constellation-selected-logo { width: 64px; height: 64px; border-radius: 16px; }
-  .constellation-selected-logo img { width: 42px; height: 42px; }
-  .constellation-help { font-size: .68rem; }
+/* Carrusel de habilidades: profundidad y giro inspirados en la referencia. */
+.skills .container {
+  grid-template-columns: minmax(220px, 280px) minmax(0, 1fr);
 }
 
-/* La constelación ocupa todo el ancho de habilidades. */
-.section.constellation-section { padding: 24px 0 0; }
-.constellation-section .container { width: 100%; max-width: none; padding: 0; }
-.constellation-section .section-heading { padding: 0 20px; }
-.constellation-shell { margin-top: 18px; border-radius: 0; border-left: 0; border-right: 0; box-shadow: none; }
-.constellation-viewport { height: clamp(440px, 65vh, 720px); }
-.constellation-toolbar, .constellation-detail { padding-left: clamp(18px, 3vw, 56px); padding-right: clamp(18px, 3vw, 56px); }
-@media (max-width: 600px) {
-  .section.constellation-section { padding-top: 20px; }
-  .constellation-viewport { height: 460px; }
+.skills-carousel {
+  min-width: 0;
 }
 
-/* Pastilla de habilidades a la izquierda del encabezado. */
-.constellation-section .section-heading {
+.skills .tech-grid {
+  display: block;
   position: relative;
-  max-width: none;
-  padding: 8px 200px;
+  height: 360px;
+  isolation: isolate;
+  overflow: clip;
+  perspective: 1000px;
 }
-.constellation-section .section-heading .badge {
+
+.skills .tech-grid::before {
+  content: '';
   position: absolute;
+  width: 86%;
+  height: 135px;
   left: 7%;
-  top: 50%;
-  transform: translateY(-50%);
-  margin: 0;
+  bottom: 22px;
+  border: 1px solid var(--lavender);
+  border-radius: 50%;
+  background: radial-gradient(ellipse, var(--primary-soft), transparent 70%);
+  transform: rotateX(52deg);
+  box-shadow: 0 12px 42px var(--primary-soft);
+  pointer-events: none;
 }
-.constellation-section .section-heading h2,
-.constellation-section .section-heading .lead { max-width: 650px; margin-left: auto; margin-right: auto; }
+
+.skills .tech-card {
+  position: absolute;
+  width: min(260px, 58%);
+  min-height: 220px;
+  top: 74px;
+  left: 50%;
+  margin-left: max(-130px, -29%);
+  background: var(--surface);
+  border: 1px solid var(--border);
+  box-shadow: var(--shadow);
+  transition: transform 1100ms cubic-bezier(.22,.68,.25,1), opacity 1100ms, border-color 1100ms, box-shadow 1100ms;
+  will-change: transform;
+}
+
+.skills .tech-card[data-position='0'] {
+  transform: translate3d(0, 24px, 100px);
+  border-color: var(--primary);
+  box-shadow: 0 22px 52px rgb(109 40 217 / 0.2);
+  z-index: 4;
+}
+
+.skills .tech-card[data-position='1'] {
+  transform: translate3d(76%, -8px, -120px) rotateY(-22deg) scale(.86);
+  opacity: .8;
+  z-index: 2;
+}
+
+.skills .tech-card[data-position='2'] {
+  transform: translate3d(0, -62px, -250px) scale(.72);
+  opacity: .5;
+  z-index: 1;
+}
+
+.skills .tech-card[data-position='3'] {
+  transform: translate3d(-76%, -8px, -120px) rotateY(22deg) scale(.86);
+  opacity: .8;
+  z-index: 2;
+}
+
+.skills-controls {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+  position: relative;
+  margin-top: 12px;
+}
+
+.skills-controls button {
+  display: inline-grid;
+  place-items: center;
+  min-width: 44px;
+  min-height: 44px;
+  border: 1px solid var(--border);
+  border-radius: 999px;
+  background: var(--surface);
+  color: var(--text);
+  font: inherit;
+  cursor: pointer;
+}
+
+.skills-controls button:hover {
+  border-color: var(--primary);
+  color: var(--primary);
+}
+
+.skills-controls .skills-pause {
+  padding: 0 14px;
+  font-size: .8rem;
+}
+
+.skills-current {
+  min-width: 155px;
+  text-align: center;
+  font-size: .8rem;
+  color: var(--muted);
+  font-variant-numeric: tabular-nums;
+}
+
 @media (max-width: 900px) {
-  .constellation-section .section-heading { padding: 0 20px; }
-  .constellation-section .section-heading .badge { position: static; display: table; transform: none; margin: 0 0 14px; }
+  .skills .container { grid-template-columns: 1fr; }
+  .skills-carousel { width: 100%; max-width: 650px; margin: auto; }
+}
+
+@media (max-width: 480px) {
+  .skills .tech-card { padding: 16px; min-height: 240px; }
+  .skills .tech-card h3 { font-size: .95rem; }
+  .skills .chip { font-size: .75rem; padding: 4px 7px; }
+  .skills-controls { gap: 6px; flex-wrap: wrap; }
+  .skills-current { min-width: 140px; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .skills .tech-card { transition: none; }
+}
+
+
+/* Logos seleccionables de las tecnologías. */
+.skills .tech-select {
+  border: 1px solid transparent;
+  color: var(--text);
+  font-family: inherit;
+  cursor: pointer;
+  min-height: 36px;
+}
+
+.skills .tech-select:hover,
+.skills .tech-select:focus-visible {
+  border-color: var(--primary);
+  background: var(--primary-soft);
+}
+
+.skills .tech-detail[hidden],
+.skills .tech-overview[hidden] { display: none; }
+
+.tech-detail { text-align: center; }
+
+.tech-back {
+  display: block;
+  border: 0;
+  background: transparent;
+  color: var(--muted);
+  padding: 2px 0 8px;
+  font: inherit;
+  font-size: .75rem;
+  cursor: pointer;
+}
+
+.tech-logo-pedestal {
+  display: grid;
+  place-items: center;
+  width: 112px;
+  height: 112px;
+  margin: 0 auto;
+  border-radius: 24px;
+  background: #fff;
+  box-shadow: 0 12px 32px rgb(109 40 217 / .16);
+}
+
+.tech-logo {
+  width: 80px;
+  height: 80px;
+  object-fit: contain;
+}
+
+.tech-name {
+  margin: 10px 0 0;
+  font-size: 1rem;
+  font-weight: 700;
+}
+
+.tech-detail:not([hidden]) .tech-logo-pedestal {
+  animation: tech-logo-appear 400ms ease-out both;
+}
+
+@keyframes tech-logo-appear {
+  from { opacity: 0; transform: translateY(12px) scale(.85) rotateY(-25deg); }
+  to { opacity: 1; transform: translateY(0) scale(1) rotateY(0); }
+}
+
+
+/* Tecnología seleccionada: logo protagonista y descripción a su lado. */
+.skills .tech-grid:has(.has-tech-detail) { height: 420px; }
+
+.skills .tech-card.has-tech-detail[data-position='0'] {
+  width: min(560px, 94%);
+  margin-left: 0;
+  left: 50%;
+  top: 48px;
+  min-height: 280px;
+  padding: 26px;
+  transform: translate3d(-50%, 0, 35px);
+  background: radial-gradient(ellipse at 25% 65%, var(--primary-soft), var(--surface) 72%);
+}
+
+.tech-detail-layout {
+  display: grid;
+  grid-template-columns: minmax(120px, .9fr) minmax(0, 1.1fr);
+  align-items: center;
+  gap: 28px;
+  min-height: 205px;
+}
+
+.tech-detail-layout .tech-logo-pedestal {
+  width: 100%;
+  max-width: 185px;
+  height: 185px;
+  border-radius: 32px;
+}
+
+.tech-detail-layout .tech-logo { width: 78%; height: 78%; }
+.tech-copy { text-align: left; }
+.tech-category { color: var(--primary); font-size: .72rem; letter-spacing: .08em; text-transform: uppercase; }
+.tech-copy .tech-name { font-size: clamp(1.4rem, 3vw, 2rem); line-height: 1.15; margin: 8px 0 12px; }
+.tech-description { color: var(--muted); font-size: .9rem; line-height: 1.65; margin: 0; }
+
+@media (max-width: 540px) {
+  .skills .tech-grid:has(.has-tech-detail) { height: 505px; }
+  .skills .tech-card.has-tech-detail[data-position='0'] { top: 24px; padding: 20px; }
+  .tech-detail-layout { grid-template-columns: 1fr; gap: 18px; padding-top: 10px; }
+  .tech-detail-layout .tech-logo-pedestal { width: 140px; height: 140px; }
+  .tech-copy { text-align: center; }
+  .tech-copy .tech-name { font-size: 1.5rem; }
+}
+
+/* Textura lila con trama fina y luz ambiental. */
+.skills {
+  position: relative;
+  isolation: isolate;
+  background-color: var(--bg-alt);
+  background-image:
+    radial-gradient(ellipse at 72% 45%, rgb(196 181 253 / .18), transparent 68%),
+    radial-gradient(ellipse at 12% 85%, rgb(139 92 246 / .09), transparent 65%),
+    radial-gradient(circle, rgb(167 139 250 / .16) .7px, transparent 1px),
+    linear-gradient(135deg, rgb(196 181 253 / .06), transparent 50%, rgb(109 40 217 / .04));
+  background-size: auto, auto, 46px 46px, auto;
+  background-position: center, center, 12px 16px, center;
+}
+.skills .tech-mini-logo { display: inline-grid; place-items: center; width: 24px; height: 24px; background: #fff; border-radius: 6px; flex-shrink: 0; }
+.skills .tech-mini-logo img { width: 18px; height: 18px; object-fit: contain; }
+.skills .tech-card:not(.has-tech-detail) { min-height: 275px; }
+.skills .tech-grid { height: 415px; }
+@media (max-width: 480px) {
+  .skills .tech-card:not(.has-tech-detail) { min-height: 320px; }
+  .skills .tech-grid { height: 465px; }
+  .skills .tech-mini-logo { width: 20px; height: 20px; }
+  .skills .tech-mini-logo img { width: 16px; height: 16px; }
 }

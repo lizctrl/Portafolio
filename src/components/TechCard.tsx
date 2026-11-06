@@ -2,14 +2,17 @@ import { h } from '../jsx';
 import type { TechGroup } from '../content';
 import { Icon } from './Icon';
 
-export const logos: Record<string, string> = {
+const logos: Record<string, string> = {
+  Angular: 'angular', 'SQL Server': 'sqlserver',
   React: 'react', 'Next.js': 'nextjs', 'Tailwind CSS': 'tailwindcss',
   TypeScript: 'typescript', 'Node.js': 'nodejs', Java: 'java', Python: 'python',
   PostgreSQL: 'postgresql', MongoDB: 'mongodb', Firebase: 'firebase',
   Git: 'git', GitHub: 'github', Docker: 'docker', Figma: 'figma',
 };
 
-export const descriptions: Record<string, string> = {
+const descriptions: Record<string, string> = {
+  Angular: 'Framework para crear aplicaciones web con componentes, formularios y navegación integrada.',
+  'SQL Server': 'Base de datos relacional de Microsoft para almacenar, consultar y administrar información con SQL.',
   React: 'Biblioteca para crear interfaces interactivas a partir de componentes reutilizables.',
   'Next.js': 'Framework basado en React para desarrollar aplicaciones web con rutas y renderizado en el servidor.',
   'Tailwind CSS': 'Herramientas de CSS para construir interfaces adaptables con clases de utilidad.',
@@ -35,7 +38,7 @@ export function TechCard({ title, icon, items }: TechGroup): Node {
           {items.map((tech) => (
             <li><button type="button" class="chip tech-select" data-tech={tech.name}
               aria-label={`Ver logo de ${tech.name}`}>
-              <img class="tech-chip-logo" src={`/logos/${logos[tech.name]}.svg`} width="19" height="19" alt="" />{tech.name}
+              <span class="tech-mini-logo"><img src={`/logos/${logos[tech.name]}.svg`} width="18" height="18" alt="" /></span>{tech.name}
             </button></li>
           ))}
         </ul>
