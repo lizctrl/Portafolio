@@ -228,16 +228,16 @@ ul {
 }
 
 .hero-bg .float {
-  animation: float 8s ease-in-out infinite;
+  animation: float 10s ease-in-out infinite;
 }
 
 .hero-bg .float-slow {
-  animation: float 6s ease-in-out infinite reverse;
+  animation: float 14s ease-in-out infinite reverse;
 }
 
 @keyframes float {
   50% {
-    transform: translateY(-14px);
+    transform: translate(8px, -26px);
   }
 }
 
@@ -756,13 +756,13 @@ ul {
     transform: translateY(0) rotate(-4deg);
   }
   50% {
-    transform: translateY(-6px) rotate(-4deg);
+    transform: translateY(-12px) rotate(-3deg);
   }
 }
 
 @media (min-width: 721px) {
   .code-card {
-    animation: codeFloat 5s ease-in-out infinite;
+    animation: codeFloat 6.5s ease-in-out infinite;
   }
 }
 
@@ -1221,3 +1221,12 @@ ul {
 .base-segments { stroke: #c4b5fd; stroke-width: 3; stroke-linecap: round; stroke-dasharray: 42 83; filter: drop-shadow(0 0 4px #a78bfa); animation: base-segment-turn 16s linear infinite; }
 .base-highlight { stroke: #f3e8ff; stroke-width: 3; stroke-linecap: round; stroke-dasharray: 70 430; filter: drop-shadow(0 0 5px #c4b5fd); animation: base-segment-turn 20s linear infinite reverse; }
 @keyframes base-segment-turn { from { stroke-dashoffset: 0; } to { stroke-dashoffset: -1000; } }
+
+/* Ritmos distintos para que las formas del hero no se muevan al unísono. */
+.hero-bg > .float:nth-child(3) { animation-delay: -3s; }
+.hero-bg > g.float { animation-delay: -6s; }
+.hero-bg > .float-slow:nth-child(2) { animation-delay: -7s; }
+@media (max-width: 700px) {
+  .hero-bg .float, .hero-bg .float-slow { animation-name: heroFloatCompact; }
+}
+@keyframes heroFloatCompact { 50% { transform: translate(4px, -16px); } }

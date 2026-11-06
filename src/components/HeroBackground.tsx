@@ -8,7 +8,7 @@ export function HeroBackground(): Node {
   return (
     <svg class="hero-bg" viewBox="0 0 1440 640" preserveAspectRatio="xMidYMid slice" aria-hidden="true" focusable="false">
       <circle class="float-slow" cx="1240" cy="90" r="210" fill="#7c3aed" opacity="0.28" />
-      <circle cx="1310" cy="520" r="120" fill="none" stroke="#c4b5fd" stroke-width="2" opacity="0.35" />
+      <circle class="float-slow" cx="1310" cy="520" r="120" fill="none" stroke="#c4b5fd" stroke-width="2" opacity="0.35" />
       <circle class="float" cx="760" cy="560" r="70" fill="#a78bfa" opacity="0.18" />
       <circle cx="120" cy="90" r="150" fill="#4c2a8a" opacity="0.45" />
       {/* El giro va en el rect y la animación en el grupo, para que no se pisen. */}
