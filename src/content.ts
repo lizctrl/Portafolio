@@ -159,6 +159,13 @@ export const content = {
     allLink: { label: 'Ver todos los proyectos', href: 'https://github.com/lizctrl?tab=repositories' } as Link,
     items: [
       {
+        title: 'Virtual Buddy',
+        description: 'Proyecto web en desarrollo construido con Next.js, React y TypeScript.',
+        image: { src: '/virtual-buddy.svg', alt: 'Virtual Buddy: proyecto en desarrollo' },
+        tags: ['Next.js', 'React', 'TypeScript'],
+        url: 'https://github.com/lizctrl/virtual-buddy',
+      },
+      {
         title: 'TaskFlow',
         description: 'App de gestión de tareas con autenticación, organización por proyectos y estadísticas.',
         image: { src: '/taskflow.svg', alt: 'Captura de TaskFlow' },
