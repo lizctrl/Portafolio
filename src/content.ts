@@ -159,13 +159,6 @@ export const content = {
     allLink: { label: 'Ver todos los proyectos', href: 'https://github.com/lizctrl?tab=repositories' } as Link,
     items: [
       {
-        title: 'FitFinder',
-        description: 'Catálogo de ejercicios con filtros por grupo muscular, dificultad y equipamiento, favoritos y organización de rutinas.',
-        image: { src: '/fit-finder.jpg', alt: 'FitFinder: catálogo de ejercicios con búsqueda y filtros' },
-        tags: ['TypeScript', 'Vite', 'CSS'],
-        url: 'https://fit-finder-coral.vercel.app/',
-      },
-      {
         title: 'Virtual Buddy',
         description: 'Proyecto web en desarrollo construido con Next.js, React y TypeScript.',
         image: { src: '/virtual-buddy.svg', alt: 'Virtual Buddy: proyecto en desarrollo' },
